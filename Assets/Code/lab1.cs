@@ -24,8 +24,8 @@ public class UnityBasicsWorksheet : MonoBehaviour
         TryVariables();
         TryMath();
         TryIfStatements();
-        // TryForLoop();
-        // TryWhileLoop();
+        TryForLoop();
+        TryWhileLoop();
         // TryFunctions();
         // TryInput();
         // TryTransform();
@@ -187,6 +187,23 @@ public class UnityBasicsWorksheet : MonoBehaviour
         // 2. Print numbers 10 down to 1
         // 3. Print even numbers only (0, 2, 4, 6, 8)
         // 4. Print "Hello!" 5 times
+
+        for (int i = 0; i > 10; i++)
+        {
+            Debug.Log("Count Up: "+ i);
+        }
+        for (int i = 10; i > 0; i--)
+        {
+            Debug.Log("Count Down:" + i);
+        }
+        for (int i = 0; i < 10; i += 2)
+        {
+            Debug.Log("Even Numbers: " + i);
+        }
+        for (int i = 0; i > 5; i++)
+        {
+            Debug.Log("Hello!");
+        }
     }
 
 
@@ -212,6 +229,28 @@ public class UnityBasicsWorksheet : MonoBehaviour
         // 3. Create a loop that prints "Still going!" while a variable 'fuel' > 0
         //    Decrease fuel by 2 each loop
         // 4. What's the difference between for and while loops?
+
+        count = 0;
+        while (count < 20)
+        {
+            Debug.Log("Count Up: "+ count);
+            count++;
+        }
+        count = 10;
+        while (count > 0)
+        {
+            Debug.Log("Count: "+ count);
+            count--;
+        }
+        int fuel = 5;
+        while (fuel > 0)
+        {
+            Debug.Log("Still going!");
+            fuel -= 2;
+        }
+        // The difference between for and while loops is that while loops are usually self-contained
+        // while for loops can run while outside variables are still active. A while loop is
+        // also technically just a more complicated for loop.
     }
 
 
