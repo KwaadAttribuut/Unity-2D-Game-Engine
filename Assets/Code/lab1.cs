@@ -26,9 +26,11 @@ public class UnityBasicsWorksheet : MonoBehaviour
         TryIfStatements();
         TryForLoop();
         TryWhileLoop();
-        // TryFunctions();
-        // TryInput();
-        // TryTransform();
+        TryFunctions();
+        TryInput();
+        TryTransform();
+        TryArrays();
+        TrySwitch();
     }
 
     void Update()
@@ -36,7 +38,7 @@ public class UnityBasicsWorksheet : MonoBehaviour
         // Update() runs EVERY FRAME
         // Uncomment this to make something happen continuously:
         
-        // TryInput();
+        TryInput();
     }
 
 
@@ -274,6 +276,10 @@ public class UnityBasicsWorksheet : MonoBehaviour
         // 2. Write a function called Multiply that takes two numbers and returns their product
         // 3. Call Greet with your name
         // 4. Call Multiply with 6 and 7, and print the result
+
+        Greet("Liam");
+        int result2 = Multiply(6, 7);
+        Debug.Log("6 * 7 = " + result2);
     }
     
     // Function with no return value
@@ -291,6 +297,17 @@ public class UnityBasicsWorksheet : MonoBehaviour
     int Double(int x)
     {
         return x * 2;
+    }
+
+    void Greet(string str)
+    {
+        string nameVar = str;
+        Debug.Log("Hello, " + nameVar + "!");
+    }
+
+    int Multiply(int num1, int num2)
+    {
+        return num1 * num2;
     }
     
 
@@ -318,6 +335,21 @@ public class UnityBasicsWorksheet : MonoBehaviour
         // 2. Check if Space is pressed (use GetKeyDown) and print "Space pressed once!"
         // 3. Check if D is pressed and move right by 0.05f
         // 4. What's the difference between GetKey and GetKeyDown?
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            Debug.Log("A is down");
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Space pressed once!");
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            transform.Translate(0.1f, 0, 0);
+            Debug.Log("Moved to the right");
+        }
+        // GetKey activates constantly while pressed, GetKeyDown activates once while held down.
     }
 
 
@@ -346,6 +378,13 @@ public class UnityBasicsWorksheet : MonoBehaviour
         // 3. Rotate it 90 degrees around the Y axis
         // 4. Scale it to be twice as big (2, 2, 2)
         // 5. What's the difference between position and Translate?
+
+        Debug.Log(transform.position);
+        transform.position = new Vector3(0, 5, 0);
+        transform.Rotate(0, 90, 0);
+        transform.localScale = new Vector3(2, 2, 2);
+
+        // Position is the current position of the object, transform adds/subtracts onto the current position to change it.
     }
 
 
@@ -370,6 +409,20 @@ public class UnityBasicsWorksheet : MonoBehaviour
         // 3. Loop through all colors and print them
         // 4. Create an array of 4 scores: 85, 92, 78, 88
         // 5. Calculate the sum of all scores
+
+        string[] fiveColours = { "red", "blue", "green", "yellow", "purple"};
+        Debug.Log(fiveColours[0] + " and " + fiveColours[4]);
+        for (int i = 0; i < fiveColours.Length; i++)
+        {
+            Debug.Log(fiveColours[i]);
+        }
+        int result = 0;
+        int[] fourScores = { 85, 92, 78, 88};
+        for (int i = 0; i < fourScores.Length; i++)
+        {
+            result += fourScores[i];
+        }
+        Debug.Log(result);
     }
 
 
@@ -400,5 +453,35 @@ public class UnityBasicsWorksheet : MonoBehaviour
         //    1 = Monday, 2 = Tuesday, 3 = Wednesday, etc.
         // 3. What happens if you forget the 'break;' statement?
         // 4. When would you use switch instead of if/else?
+
+        int day = 3;
+        
+        switch (day)
+        {
+            case 1:
+                Debug.Log("It is Monday");
+                break;
+            case 2:
+                Debug.Log("It is Tuesday");
+                break;
+            case 3:
+                Debug.Log("It is Wednesday");
+                break;
+            case 4:
+                Debug.Log("It is Thursday");
+                break;
+            case 5:
+                Debug.Log("It is Friday");
+                break;
+            case 6:
+                Debug.Log("It is Saturday");
+                break;
+            case 7:
+                Debug.Log("It is Sunday");
+                break;
+        }
+
+        // The case would not end.
+        // Better code readability and performance.
     }
 }
