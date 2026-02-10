@@ -21,6 +21,7 @@ public class enemyAI : MonoBehaviour, iDamageable
     private bool isMovingRight = true;
     private Rigidbody2D rb;
 
+    [System.Obsolete]
     void Awake()
     {
         currentHealth = maxHealth;
@@ -76,7 +77,7 @@ public class enemyAI : MonoBehaviour, iDamageable
         {
             if(isMovingRight && transform.position.x >= rightBound.position.x)
             isMovingRight = false;
-            else if(isMovingRight && transform.position.x <= leftBound.position.x)
+            else if(!isMovingRight && transform.position.x <= leftBound.position.x)
             isMovingRight = true;
         }
         Move(isMovingRight ? 1f: -1f);
